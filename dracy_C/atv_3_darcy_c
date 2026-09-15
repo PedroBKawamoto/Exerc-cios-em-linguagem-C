@@ -1,0 +1,228 @@
+#include <stdio.h>
+#include <math.h>
+
+// 1 - verificação de ano bissexto
+
+int main(){
+    int ano;
+    printf("digite um ano: ");
+    scanf("%d", &ano);
+    if ((ano % 400 == 0) || (ano  % 4 == 0 && ano %100 != 0)){
+        printf("o ano e bissexto");
+    }
+    else{
+        printf("o ano nao e bissexto");
+    }
+}
+
+
+// 2 - erificac¸ ˜ao de existencia de tri ˆangulo pelos ˆangulos
+
+int main(){
+    int a, b, c;
+    printf("digite o angulo a: ");
+    scanf("%d", &a);
+
+    printf("digite o angulo b: ");
+    scanf("%d", &b);
+
+    printf("digite o angulo c: ");
+    scanf("%d", &c);
+
+    if ((a>0 && b>0 && c>0) && (a + b + c == 180)){
+        printf("pode ser triangulo");
+    }
+    else{
+        printf("nao pode ser trianulo");
+    }
+}
+
+
+
+// 3 - n ´alise completa de uma express ˜ao quadr ´atica
+
+int main(){
+    int a, b, c, delta;
+    printf("digite a: ");
+    scanf("%d", &a);
+
+    printf("digite b: ");
+    scanf("%d", &b);
+
+    printf("digite c: ");
+    scanf("%d", &c);
+
+    if (a == 0){
+        printf("\nnao e expressao do sefgundo grau");
+    }
+    else{
+
+     if (a>0){
+        printf("\nconcavidadae para cima");
+    }
+    else if (a<0){
+        printf("\nconcavidade para baixo");
+    }
+
+            delta = - pow(b,2) - 4 * a * c;
+        printf("o delta e %d", delta);
+        if (delta < 0){
+            printf("\nnao possui raizes reais");
+        }
+        else if (delta > 0){
+            printf("\npossui duas raizes reais");
+        }
+        else if (delta == 0 ){
+            printf("\npossui uma raiz real");
+        }
+    }
+    }
+
+
+
+//4 - Classificac¸ ˜ao de Tri ˆangulos
+
+int main (){
+    int a, b, c;
+    printf("digite a: ");
+    scanf("%d", &a);
+
+    printf("digite : ");
+    scanf("%d", &b);
+
+    printf("digite c: ");
+    scanf("%d", &c);
+
+    while (a!= 0){
+        if (a == b && b == c){
+            printf("triangulo equilatero\n");
+        }
+        else if ((a == b && b != c) || (b == c && b!= a) || (c == a && c != b)){
+            printf("triangulo isoceles\n");
+        }
+        else if (a != b && a != c && b != c){
+            printf("triangulo escaleno\n");
+        }
+
+        printf("\ndigite a: ");
+        scanf("%d", &a);
+
+        printf("digite b : ");
+        scanf("%d", &b);
+
+        printf("digite c: ");
+        scanf("%d", &c);
+
+    }
+}
+
+
+//5 - seleção de candidatos
+
+int main(){
+    float notas[10], nota_final[10];
+    int qfal[10];
+    int elim = 0;
+    for (int i = 0; i<10; i++){ 
+        printf("digite a nota: ");
+        scanf("%f", &notas[i]);
+
+        printf("digite a quantidade de faltas: ");
+        scanf("%d", &qfal[i]);
+
+
+    }
+    for (int i = 0; i <10; i++){
+        nota_final[i] = notas[i] - qfal[i];
+        
+        if (nota_final[i] < 0){
+            nota_final[i] = 0;
+        }
+
+        if (nota_final[i] < 6 || qfal[i] >3){
+            elim++;
+        }
+
+    }
+    for (int i =0; i<10; i++){
+    printf("\na nota final do candidato %d e %f", i+1, nota_final[i]);}
+
+    printf("\na quantidade de eliminados e %d", elim);
+}
+
+
+
+
+//6 - An ´alise da diagonal principal
+int main(){
+    int mat[4][4];
+    int sdiag = 0;
+    int q_aci = 0;
+    for (int i =0; i<4; i++){
+        for (int j = 0; j<4; j++){
+            printf("digite um numero: ");
+            scanf("%d", &mat[i][j]);
+        }
+    }
+    for (int i =0; i<4; i++){
+        for (int j = 0; j<4; j++){
+            if (i == j){
+                sdiag += mat[i][j];
+                
+            }
+            else if(i<j){
+                q_aci+=1;
+            }
+        }
+    }
+    printf("A soma da diagonal e %d", sdiag);
+    printf("\nA quantidade de numeros acima da diagonal e %d", q_aci);
+}
+
+
+
+
+//7 - classifique a matriz
+
+int main(){
+    int mat[5][5];
+    int mts = 0;
+    int mti = 0;
+    for (int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+        printf("digite um numero: ");
+        scanf("%d", &mat[i][j]);
+        }
+    }
+    for (int i = 0; i<5; i++){
+        for (int j = 0; j < 5; j++){
+            if (i < j){
+                if (mat[i][j] == 0){
+                    mts+=1;
+                }
+            }
+            else if (i > j){
+                if(mat[i][j] == 0){
+                    mti+=1;
+                }
+            }
+        }
+    }
+    if (mti == 10 && mts == 10){
+    printf("matriz diagonal");
+    }
+
+    else if (mts == 10){
+        printf("matriz triangular superior");
+    
+    }
+    else if (mti == 10){
+        printf("matriz triangular inferior");
+    }
+
+    else {
+        printf("a matriz nao e triangular");
+    }
+}
+
+

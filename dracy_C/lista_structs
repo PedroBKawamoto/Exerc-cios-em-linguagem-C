@@ -1,0 +1,92 @@
+#include <stdio.h>
+
+//considere a struct aseguir:
+typedef struct {
+char nome[30];
+int idade;
+} Pessoa;
+
+/*
+Qual express ˜ao deve ser utilizada para acessar o campo idade de p?    ->p.idade
+Escreva um printf que imprima o nome de p
+*/
+
+void exc1() {
+    Pessoa p = {"Marina", 21};
+    printf("nome: %s\n", p.nome);}
+
+//================================================================
+
+//Considere a struct a seguir:
+typedef struct {
+char nome[30];
+char pais[20];
+float preco;
+} Destino;
+
+/*faça a funcao de impressao:*/
+void imprimirDestino(Destino d) {
+printf("Destino: %s\n", d.nome);
+printf("Pais: %s\n", d.pais);
+printf("Preco: %.2f\n", d.preco);
+}
+
+//==================================================================
+
+//Considere a struct e a variavel ja preenchida:
+typedef struct Aluno{
+char nome[30];
+float notas[3];
+} Aluno;
+
+
+/*
+Implemente a funcao:
+void imprimirNotas(struct Aluno a);
+A funcao deve imprimir o nome do aluno e as tres notas armazenadas no vetor notas.*/
+
+void imprimirNotas(struct Aluno a){
+    printf("nome: %s\n", a.nome);
+    printf("nota 1: %f\n", a.notas[0]);
+    printf("nota 2: %f\n", a.notas[1]);
+    printf("nota 3: %f\n", a.notas[2]);
+}
+
+int main(){
+    Aluno a = {"Carlos", {7.5, 8.0, 9.0}};
+    imprimirNotas(a);
+}
+
+//=======================================================================
+#include <stdbool.h>
+/*
+Em um sistema medico, cada paciente armazena nome, temperatura e saturacao. Considere a
+struct abaixo e complete a funcao que indica se o paciente esta em risco*/
+typedef struct {
+char nome[30];
+float temperatura;
+float saturacao;
+} Paciente;
+
+/*
+A funcao deve retornar true se a temperatura for maior ou igual a 39 ou se a saturacao for
+menor que 92. Caso contrario, deve retornar false.*/
+bool emRisco(Paciente p) {
+    if(p.temperatura >= 39 || p.saturacao < 92){
+        return true;
+    }
+    return false;
+}
+
+int main(){
+    Paciente p1 = {"Pedro", 39, 80};
+    if (emRisco(p1) == true){
+        printf("paciente %s em situacao de risco\n", p1.nome);
+    }
+    else{
+        printf("paciente %s fora de situacao de risco\n", p1.nome);
+    }
+}
+
+//===============================================================================
+
